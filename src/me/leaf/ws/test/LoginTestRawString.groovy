@@ -3,7 +3,7 @@ package me.leaf.ws.test
 import wslite.soap.*
 
 
-def client = new SOAPClient('http://ws.leaftest.me/PresenterTestSessionService/LeafDBSvc.Service1.svc')
+def client = new SOAPClient('http://ws.some.me/PresenterTestSessionService/LeafDBSvc.Service1.svc')
 def response = client.send(
         """<env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://tempuri.org/" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:n0="www.leaf.me/Presenter" xmlns:leaf="http://schemas.datacontract.org/2004/07/LeafDBSvc">
  <env:Header>
@@ -13,9 +13,9 @@ def response = client.send(
    <env:Body>
       <tns:WebLogin>
          <!--Optional:-->
-         <tns:strUserName>meltem+master@vngrs.com</tns:strUserName>
+         <tns:strUserName>someUsername</tns:strUserName>
          <!--Optional:-->
-         <tns:strPassword>Meltem123</tns:strPassword>
+         <tns:strPassword>somepass</tns:strPassword>
       </tns:WebLogin>
    </env:Body>
 </env:Envelope>"""
