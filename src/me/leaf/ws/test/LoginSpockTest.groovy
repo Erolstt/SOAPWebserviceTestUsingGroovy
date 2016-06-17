@@ -23,7 +23,7 @@ class LoginSpockTest extends Specification {
                     'xmlns:leaf': 'http://schemas.datacontract.org/2004/07/LeafDBSvc'
             header() {
                 //order is important
-                'n0:SecurityToken'("024b263e53ed1a4e-5a43d328-479743f5-bc3ba331-8adc6a5ba0c98")
+                'n0:SecurityToken'("0000000000000000000-sometoken")
                 'wsa:Action'("http://tempuri.org/LeafDbSvc/WebLogin")
             }
             body {
@@ -38,9 +38,9 @@ class LoginSpockTest extends Specification {
 
     void 'login into web apps with valid credentials'() {
         given:
-        def serverURL = "http://ws.leaftest.me"
+        def serverURL = "http://ws.someurl.com"
         when:
-        def loginWithValidCredentials = WebLogin('meltem+master@vngrs.com', 'Meltem123', serverURL)
+        def loginWithValidCredentials = WebLogin('someuser', 'somepass', serverURL)
         then:
         200 == loginWithValidCredentials.httpResponse.statusCode
         '4216' == loginWithValidCredentials.WebLoginResponse.WebLoginResult.text()
@@ -51,7 +51,7 @@ class LoginSpockTest extends Specification {
         given:
         def serverURL = "http://ws.leaftest.me"
         when:
-        def loginWithValidCredentials = WebLogin('meltem+master@vngrs.com', 'meltem321', serverURL)
+        def loginWithValidCredentials = WebLogin('someuser', 'somepass', serverURL)
         then:
         200 == loginWithValidCredentials.httpResponse.statusCode
         '-1' == loginWithValidCredentials.WebLoginResponse.WebLoginResult.text()
