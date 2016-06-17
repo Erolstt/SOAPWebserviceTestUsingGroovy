@@ -1,0 +1,1 @@
+POC for leaf web service. To run the project you need to install groovy 2.3.8 and gradle 2.2.1. Testing framework for this project is Spock Framework.
