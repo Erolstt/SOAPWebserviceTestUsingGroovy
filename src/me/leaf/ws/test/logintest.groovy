@@ -18,13 +18,13 @@ def response = client.send(SOAPAction: 'http://tempuri.org/LeafDbSvc/WebLogin') 
             'xmlns:leaf':'http://schemas.datacontract.org/2004/07/LeafDBSvc'
     header() {
         //order is important
-        'n0:SecurityToken'("024b263e53ed1a4e-5a43d328-479743f5-bc3ba331-8adc6a5ba0c98")
+        'n0:SecurityToken'("00000000000000000000000000000000_sometoken")
         'wsa:Action'("http://tempuri.org/LeafDbSvc/WebLogin")
     }
     body {
         WebLogin(xmlns: 'http://tempuri.org/'){
-            strUserName('meltem+master@vngrs.com')
-            strPassword('Meltem123')
+            strUserName('someuser')
+            strPassword('somepass')
         }
     }
 }
